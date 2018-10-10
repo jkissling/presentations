@@ -1,0 +1,9 @@
+body {
+	margin: 0;
+}
+
+/* MAP DIMENSIONEN */ 
+#mapDiv {
+	height: 100vh;
+	width: 100vw;
+}
