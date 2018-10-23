@@ -354,7 +354,6 @@ interface PartialOptions {
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - tslint: `npm install --save-dev tslint`
-- dojo typings: `npm install --save-dev dojo-typings`
 
 ---
 
@@ -375,7 +374,7 @@ interface PartialOptions {
 - JS API is currently strictly AMD
 - Conventionally classes are exported directly
 - Requires the use of `require` style imports
-  - `import MapView = require("esri/views/MapView")`
+  - `import MapView from "esri/views/MapView"`
   - Or, use `esModuleInterop` with typescript 2.7.2
 
 ---
