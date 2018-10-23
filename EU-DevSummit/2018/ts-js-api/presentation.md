@@ -6,6 +6,9 @@
 
 #### Julian Kissling – [@JulianKissling](https://twitter.com/JulianKissling)
 
+---
+
+<!-- .slide: class="sponsor" -->
 
 ---
 
@@ -440,15 +443,16 @@ interface PartialOptions {
 
 ---
 
-<!-- .slide: class="questions" -->
+<!-- **please rate us** -->
+<!-- .slide: class="survey" -->
+
+---
 
 ## Questions?
 
-**Help us to improve** by filling out the survey
+> 🤔 Where can I find the slides/source?
 
-![Survey](images/survey-slide.png)
-
-Slides & Demos: [github.com/jkissling/presentations/EU-DevSummit](https://github.com/jkissling/presentations/EU-DevSummit/2018/ts-js-api)
+👉 [github.com/jkissling/presentations/EU-DevSummit](https://github.com/jkissling/presentations/EU-DevSummit/2018/ts-js-api) 👈
 
 ---
 
