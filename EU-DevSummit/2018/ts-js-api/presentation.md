@@ -196,7 +196,7 @@ function setSize(v: number | string) {
 
 ---
 
-## Intersection types
+<!-- ## Intersection types
 
 - Combining multiple types to a single type representing all of the features
 
@@ -206,7 +206,7 @@ function mixin<U, T>(u: U, t: T): T & U {
 }
 ```
 
----
+--- -->
 
 ## Type guards
 
@@ -285,7 +285,7 @@ list.find(v => v > 1);
 
 ---
 
-## keyof
+<!-- ## keyof
 
 - `keyof` allows for "dynamic" type creation
 - Can help making types flexible but keeping them strict
@@ -306,8 +306,8 @@ function withOptions(options?: Partial<Options>) {
 }
 ```
 
----
-
+--- -->
+<!-- 
 ## keyof
 
 ```ts
@@ -327,7 +327,7 @@ interface PartialOptions {
 }
 ```
 
----
+--- -->
 
 ## Async/await
 
