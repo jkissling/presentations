@@ -452,7 +452,7 @@ interface PartialOptions {
 
 > 🤔 Where can I find the slides/source?
 
-👉 [github.com/jkissling/presentations/EU-DevSummit](https://github.com/jkissling/presentations/EU-DevSummit/2018/ts-js-api) 👈
+👉 [github.com/jkissling/presentations/EU-DevSummit](https://github.com/jkissling/presentations/tree/master/EU-DevSummit/2018/ts-js-api) 👈
 
 ---
 
