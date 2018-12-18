@@ -29,12 +29,12 @@ require([
 
 	// Options of the FeatureLayer
 	var featureLayerOptions = {
-		outFields: ["Date_", "Magnitude"],
-
+		url: "//services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Earthquakes_Since_1970/FeatureServer/0",
+		outFields: ["Date_", "Magnitude"]
 	};
 
 	// Create FeatureLayer --> Load the FeatureLayer Module
-	var featureLayer = new FeatureLayer(serviceUrl, featureLayerOptions);
+	var featureLayer = new FeatureLayer(featureLayerOptions);
 
 	// Creating a PopUp
 	// Attributes of the service: http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Earthquakes_Since_1970/FeatureServer/0
@@ -131,61 +131,36 @@ require([
 	// Approach 1: Creating a Renderer wit a fixed Field
 	var cbRenderer = {
 		type: "class-breaks", 									// Renderer type. Will be autocasted to ClassBreaksRenderer
-		field: "Magnitude",
+		field: "Magnitude",   
 		defaultSymbol: defaultSymbol,
 		classBreakInfos: [										// Class Breaks
-			{ minValue: 0, maxValue: 3, symbol: veryLowSymbol },
-			{ minValue: 3, maxValue: 5, symbol: lowSymbol },
-			{ minValue: 5, maxValue: 6, symbol: mediumSymbol },
-			{ minValue: 6, maxValue: 7, symbol: highSymbol },
-			{ minValue: 7, maxValue: Infinity, symbol: veryHighSymbol }
+			{minValue: 0, maxValue: 3, symbol: veryLowSymbol},
+			{minValue: 3, maxValue: 5, symbol: lowSymbol},
+			{minValue: 5, maxValue: 6, symbol: mediumSymbol},
+			{minValue: 6, maxValue: 7, symbol: highSymbol},
+			{minValue: 7, maxValue: Infinity, symbol: veryHighSymbol}
 		]
 	}
 
-	// Approach 2: Creating a Renderer using a Function
-	function totalHarmedPersons(feature) {
-		var deaths = feature.attributes.Num_Deaths || 0;
-		var injured = feature.attributes.Num_Injured || 0;
-		return deaths + injured
-	}
+	// Approach 2: Creating a Renderer using an Expression
 
 	var cbRenderer2 = {
-		type: "class-breaks", 									// Renderer type. Will be autocasted to ClassBreaksRenderer
-		field: totalHarmedPersons,   							// Assigning our function as field
-		defaultSymbol: defaultSymbol,
-		classBreakInfos: [										// Class Breaks
-			{ minValue: 0, maxValue: 10, symbol: veryLowSymbol },
-			{ minValue: 10, maxValue: 25, symbol: lowSymbol },
-			{ minValue: 25, maxValue: 50, symbol: mediumSymbol },
-			{ minValue: 50, maxValue: 100, symbol: highSymbol },
-			{ minValue: 100, maxValue: Infinity, symbol: veryHighSymbol }
-		]
-	}
-
-	// Approach 3: Creating a Renderer using an Expression
-	function totalHarmedPersons(feature) {
-		var deaths = feature.attributes.Num_Deaths || 0;
-		var injured = feature.attributes.Num_Injured || 0;
-		return deaths + injured
-	}
-
-	var cbRenderer3 = {
 		type: "class-breaks", 									// Renderer type. Will be autocasted to ClassBreaksRenderer
 		valueExpression: "$feature.Num_Deaths * 100",   							// Arcade Expression
 		defaultSymbol: defaultSymbol,
 		classBreakInfos: [										// Class Breaks
-			{ minValue: 0, maxValue: 100, symbol: veryLowSymbol },
-			{ minValue: 100, maxValue: 250, symbol: lowSymbol },
-			{ minValue: 250, maxValue: 500, symbol: mediumSymbol },
-			{ minValue: 500, maxValue: 1000, symbol: highSymbol },
-			{ minValue: 1000, maxValue: Infinity, symbol: veryHighSymbol }
+			{minValue: 0, maxValue: 100, symbol: veryLowSymbol},
+			{minValue: 100, maxValue: 250, symbol: lowSymbol},
+			{minValue: 250, maxValue: 500, symbol: mediumSymbol},
+			{minValue: 500, maxValue: 1000, symbol: highSymbol},
+			{minValue: 1000, maxValue: Infinity, symbol: veryHighSymbol}
 		]
 	}
 
 
 	// Apply renderer
 	// Change the renderer based on what approach you want to show on the map: cbRenderer, cbRenderer2
-	featureLayer.renderer = cbRenderer3;
+	featureLayer.renderer = cbRenderer2;
 
 	// Add FeatureLayer to Map
 	myMap.add(featureLayer);

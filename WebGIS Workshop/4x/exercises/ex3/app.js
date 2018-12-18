@@ -14,17 +14,14 @@ require(["esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer",  "dojo/do
 	}
 	var mapView = new MapView(viewOptions)
 
-	// URL of the Service
-	var serviceUrl = "//services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Earthquakes_Since_1970/FeatureServer/0";
-	
 	// Options of the FeatureLayer
 	var featureLayerOptions = {
-		outFields: ["Date_", "Magnitude"],
-
+		url: "//services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Earthquakes_Since_1970/FeatureServer/0",
+		outFields: ["Date_", "Magnitude"]
 	};
 	
 	// Create FeatureLayer --> Load the FeatureLayer Module
-	var featureLayer = new FeatureLayer(serviceUrl, featureLayerOptions);
+	var featureLayer = new FeatureLayer(featureLayerOptions);
 	// Add FeatureLayer to Map
 	myMap.add(featureLayer);
 });

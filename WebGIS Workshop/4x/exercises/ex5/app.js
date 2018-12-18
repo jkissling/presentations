@@ -22,17 +22,14 @@ require([
 	}
 	var mapView = new MapView(viewOptions)
 
-	// URL of the Service
-	var serviceUrl = "//services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Earthquakes_Since_1970/FeatureServer/0";
-
 	// Options of the FeatureLayer
 	var featureLayerOptions = {
-		outFields: ["Date_", "Magnitude"],
-
+		url: "//services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Earthquakes_Since_1970/FeatureServer/0",
+		outFields: ["Date_", "Magnitude"]
 	};
 
 	// Create FeatureLayer --> Load the FeatureLayer Module
-	var featureLayer = new FeatureLayer(serviceUrl, featureLayerOptions);
+	var featureLayer = new FeatureLayer(featureLayerOptions);
 
 	// Creating a PopUp
 	// Attributes of the service: http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Earthquakes_Since_1970/FeatureServer/0
@@ -140,34 +137,9 @@ require([
 		]
 	}
 
-	// Approach 2: Creating a Renderer using a Function
-	function totalHarmedPersons(feature) {
-		var deaths = feature.attributes.Num_Deaths || 0;
-		var injured = feature.attributes.Num_Injured || 0;
-		return deaths + injured
-	}
+	// Approach 2: Creating a Renderer using an Expression
 
 	var cbRenderer2 = {
-		type: "class-breaks", 									// Renderer type. Will be autocasted to ClassBreaksRenderer
-		field: totalHarmedPersons,   							// Assigning our function as field
-		defaultSymbol: defaultSymbol,
-		classBreakInfos: [										// Class Breaks
-			{minValue: 0, maxValue: 10, symbol: veryLowSymbol},
-			{minValue: 10, maxValue: 25, symbol: lowSymbol},
-			{minValue: 25, maxValue: 50, symbol: mediumSymbol},
-			{minValue: 50, maxValue: 100, symbol: highSymbol},
-			{minValue: 100, maxValue: Infinity, symbol: veryHighSymbol}
-		]
-	}
-
-	// Approach 3: Creating a Renderer using an Expression
-	function totalHarmedPersons(feature) {
-		var deaths = feature.attributes.Num_Deaths || 0;
-		var injured = feature.attributes.Num_Injured || 0;
-		return deaths + injured
-	}
-
-	var cbRenderer3 = {
 		type: "class-breaks", 									// Renderer type. Will be autocasted to ClassBreaksRenderer
 		valueExpression: "$feature.Num_Deaths * 100",   							// Arcade Expression
 		defaultSymbol: defaultSymbol,
@@ -183,7 +155,7 @@ require([
 
 	// Apply renderer
 	// Change the renderer based on what approach you want to show on the map: cbRenderer, cbRenderer2
-	featureLayer.renderer = cbRenderer3;
+	featureLayer.renderer = cbRenderer2;
 
 	// Add FeatureLayer to Map
 	myMap.add(featureLayer);
