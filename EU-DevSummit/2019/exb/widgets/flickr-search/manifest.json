@@ -1,0 +1,24 @@
+{
+  "name": "flickr-search",
+  "type": "widget",
+  "version": "1.0.0-beta",
+  "exbVersion": "1.0.0-beta",
+  "author": "Esri Switzerland",
+  "description": "Search Flicker images for a location",
+  "copyright": "",
+  "dependency": "jimu-arcgis",
+  "license": "MIT",
+  "properties": {},
+  "supportedLocales": ["en"],
+  "messageActions": [
+    {
+      "name": "query",
+      "label": "Load for Selection",
+      "uri": "runtime/actions/select-action"
+    }
+  ],
+  "defaultSize": {
+    "width": 800,
+    "height": 500
+  }
+}

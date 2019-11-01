@@ -1,0 +1,57 @@
+.flickr-search {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .title {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .wrapper {
+        display: flex;
+        overflow: hidden;
+        flex-basis: 100%;
+        
+        .left {
+            flex-basis: 40%;
+            border-right: 1px solid lightgray;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+            .search {
+                width: 100%;
+            }
+
+            .image-container {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 10px;
+                overflow: auto;
+                justify-content: center;
+
+                .flickr-image {
+                    cursor: pointer;
+                    margin: 3px;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+        .right {
+            flex-basis: 60%;
+            min-height: 300px;
+
+            .map {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}
