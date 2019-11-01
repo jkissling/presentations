@@ -1,6 +1,6 @@
 # Building Your Own Widget with ArcGIS API for JavaScript
 
-[Preview presentation](https://jkissling.github.io/presentations/EU-DevSummit/2019/custom-widgets/)
+[Preview presentation](https://jkissling.github.io/presentations/EU-DevSummit/2019/custom-widgets/slides)
 
 Presenters: Julian Kissling, Rene Rubalcava
 
