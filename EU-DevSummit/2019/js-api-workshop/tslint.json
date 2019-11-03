@@ -1,0 +1,38 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "linterOptions": {
+    "exclude": ["src/index.ts", "src/app/DataContract.ts"]
+  },
+  "jsRules": {},
+  "rules": {
+    "quotemark": {
+      "options": ["single", "jsx-double"]
+    },
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "object-literal-shorthand": false,
+    "trailing-comma": false,
+    "member-ordering": false,
+    "arrow-parens": {
+      "options": "ban-single-arg-parens"
+    },
+    "curly": {
+      "options": "ignore-same-line"
+    },
+    "no-consecutive-blank-lines": [true, 2],
+    "semicolon": false,
+    "prefer-const": false,
+    "variable-name": {
+      "options": "allow-leading-underscore"
+    },
+    "no-trailing-whitespace": false,
+    "no-console": false,
+    "eofline": false,
+    "interface-name": false,
+    "max-classes-per-file": false,
+    "no-unused-expression": false,
+    "radix": false
+  },
+  "rulesDirectory": []
+}
